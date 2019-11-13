@@ -79,6 +79,14 @@ export default {
           }).then(result => {
             // 存储到本地存储
             window.localStorage.setItem('user-token', result.data.data.token)
+            // 跳转到主页
+            this.$router.push('/home')
+          }).catch(() => {
+            // 提示消息
+            this.$message({
+              type: 'warning',
+              message: '手机号或者验证码错误'
+            })
           })
         }
       })
